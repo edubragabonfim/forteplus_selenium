@@ -1,0 +1,25 @@
+9) Erros comuns e soluções rápidas
+
+Element not interactable: o elemento pode estar invisível; espere por element_to_be_clickable ou role até ele com JavaScript.
+StaleElementReferenceException: a página recarregou/DOM mudou; recalcule o elemento (find_element novamente).
+TimeoutException: aumente o tempo de espera ou ajuste o seletor.
+Driver não encontrado: garanta que está em Selenium 4.6+ para usar Selenium Manager, ou use webdriver-manager.
+
+
+
+
+Principais formas:
+
+By.ID: driver.find_element(By.ID, "meu-id")
+By.NAME: driver.find_element(By.NAME, "q")
+By.CLASS_NAME: driver.find_element(By.CLASS_NAME, "btn")
+By.TAG_NAME: driver.find_element(By.TAG_NAME, "h1")
+By.LINK_TEXT / PARTIAL_LINK_TEXT
+By.CSS_SELECTOR: driver.find_element(By.CSS_SELECTOR, "div.card > a.btn")
+By.XPATH: driver.find_element(By.XPATH, "//div[@class='card']//a[contains(@class,'btn')]")
+
+
+StaleElementReferenceException
+significa que o elemento que você encontrou antes não é mais válido no DOM.
+Ou seja, o Selenium achou o botão, mas depois o HTML da página mudou (por recarregamento, troca de página, AJAX, etc.) 
+e a referência que você tinha ficou “velha” (stale = obsoleta).
